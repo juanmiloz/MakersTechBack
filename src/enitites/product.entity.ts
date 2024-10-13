@@ -23,8 +23,8 @@ export class Product extends BaseEntity {
   @Column({ type: 'varchar', length: 100, nullable: true })
   category?: string;
 
-  @Column({ type: 'varchar', length: 255, nullable: true })
-  imageUrl?: string;
+  @Column({ type: 'text',  nullable: true })
+  image?: string;
 
   @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdDate: Date;
