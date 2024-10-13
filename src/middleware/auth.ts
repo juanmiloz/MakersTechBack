@@ -14,13 +14,6 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
 
         token = token.replace('Bearer ', '');
         const decoded: JwtInfoInterface = await jwt.verify(token,secret) as JwtInfoInterface;
-        
-        if(decoded.username !== req.params.username){
-            console.log(decoded)
-            console.log(req.params.username)
-            console.log("Token does not match username");
-            return res.status(401).json({ message: "Unauthorized" });
-        }
 
         req.body.loggedUser = decoded;
         next();

@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 
-class ProductController {
+class ChatController {
 
-    public async getAllProducts(req: Request, res: Response): Promise<Response> {
+    public async getProductinfo(req: Request, res: Response): Promise<Response> {
         try {
-            return res.status(200).json({ message: "Get All Products" });
+            return res.status(200).json({ message: "Get Product Info" });
         } catch (err) {
             if(err instanceof Error){
                 return res.status(500).json({ message: err.message });
@@ -16,4 +16,4 @@ class ProductController {
 
 }
 
-export default ProductController;
+export default new ChatController();
