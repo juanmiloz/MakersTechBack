@@ -21,7 +21,7 @@ const routes = (app: Express) => {
     app.get("/products", auth, productController.getAllProducts);
     
     //CHAT ROUTES
-    app.get("/chat/product", auth, chatController.getProductinfo)
+    app.post("/chat/product", auth, chatController.getProductinfo)
 
 }
 
