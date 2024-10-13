@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import { AppDataSource } from "../config/db";
+import { Product } from "../enitites/product.entity";
 
 class ProductController {
 
