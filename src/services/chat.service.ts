@@ -16,8 +16,9 @@ class ChatService {
   ): Promise<string> {
     const prompt = `Estos son productos en formato JSON: \n${products} \n. Estas son las preferencias del usuario: \n${preference}\n. 
     A partir de la anterior información, responde: Teniendo en cuenta las preferencias del usuario ¿que productos recomendarías? \n
-    entregame el resultado dirigiendote al usuario, mencionando que en base a sus preferencias, estos son los productos que mas encajan con ellas.`;
+    entregame el resultado en formato JSON de los productos que son recomendados para mi, dame unicamente el json de los productos recomendados y previamente añade la palabra "recomendados" al inicio de tu respuesta.`;
     const { text } = await generateText({ model: this.model, prompt: prompt });
+    console.log(text);
     return text;
   }
 }
