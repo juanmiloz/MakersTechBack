@@ -22,6 +22,7 @@ const routes = (app: Express) => {
     
     //CHAT ROUTES
     app.post("/chat/product", auth, chatController.getProductinfo)
+    app.get("/chat/recomended/:userId", auth, chatController.getRecomendedProducts)
 
 }
 

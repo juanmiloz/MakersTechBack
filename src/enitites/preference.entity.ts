@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from './user.entity';
 
 
@@ -8,6 +8,7 @@ export class Preference extends BaseEntity {
     preferenceId: number;
 
     @ManyToOne(() => User, user => user.preferences, { eager: true, onDelete: 'CASCADE' })
+    @JoinColumn({ name: 'userId' })
     user: User;
 
     @Column({ type: 'varchar', length: 100, nullable: true })
