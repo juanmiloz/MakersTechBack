@@ -27,9 +27,8 @@ class ChatController {
             const productInfo = await productService.getAllProducts();
             const clientPreferences = await preferenceService.getUserPreferences(userId);
 
-            console.log(clientPreferences);
-
-            return res.status(200).json({ message: "logrado" });
+            const response = await chatService.getRecomendedProducts(JSON.stringify(productInfo), JSON.stringify(clientPreferences));
+            return res.status(200).json({ message: response });
         } catch (err) {
             if(err instanceof Error){
                 return res.status(500).json({ message: err.message });
