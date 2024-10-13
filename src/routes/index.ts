@@ -4,6 +4,8 @@ import authController from "../controllers/auth.controller";
 import userController from "../controllers/user.controller";
 import { auth } from "../middleware/auth";
 import chatController from "../controllers/chat.controller";
+import ProductController from "../controllers/product.controller";
+import productController from "../controllers/product.controller";
 
 
 const routes = (app: Express) => {
@@ -16,7 +18,7 @@ const routes = (app: Express) => {
     app.get("/users", auth,userController.getAllUsers);
     
     //PRODUCT ROUTES
-    
+    app.get("/products", auth, productController.getAllProducts);
     
     //CHAT ROUTES
     app.get("/chat/product", auth, chatController.getProductinfo)
